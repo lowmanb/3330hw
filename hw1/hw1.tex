@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+
+\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\newcommand{\un}[1]{\ensuremath{\, \mathrm{#1}}}
+\makeatletter\@enumdepth1\makeatother
+
+\title{\textbf{Homework 1}}
+\author{Ben Lowman}
+\date{January 27th, 2014}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+	
+	\item [1.3] Insructions in a high level language (Such as C) are first translated into assembly language by a compiler. An assembler then coverts from assembly language into machine langauge. This is the language that executes on the processor.
+	
+	\item [1.4]
+	\begin{enumerate}
+		\item The buffer size $B$ in bytes is given by the equation
+			\[B = (\text{bytes per subpixel}) \times (\text{number of subpixels per pixel}) \times (\text{number of pixels})\]
+
+			Substituting the given qunatities:
+			\[B = \frac{8\un{bits}}{8}\un{MB} \times 3 \times 1280 \times 1024 = 3.93 \un{MB}\]
+		\item The time $t$ required for the transfer is given by dividing the total data transfered by the transfer rate
+			\[t = \frac{3.93 \un{MB}}{\frac{100\un{bits}}{8} \un{MB/s}} =0.31 \un{s} \]
+	\end{enumerate}
+
+	\item [1.5]
+	\begin{enumerate}
+		\item Performance $P$ in instructions per second is given by dividing clock rate by the CPI 
+			\begin{align*}
+				P_1 &= \frac{3 \un{GHz}}{1.5\un{CPI}} = 2\e{9}\un{instructions/s}\\
+				P_2 &= \frac{2.5 \un{GHz}}{1.0\un{CPI}} = 2.5\e{9}\un{instructions/s} \\
+				P_3 &= \frac{4 \un{GHz}}{2.2\un{CPI}} = 1.82\e{9}\un{instructions/s}
+			\end{align*}
+
+		\item Multiplying the performance by time gives the total number of instructions $I$
+			\begin{align*}
+				I_1 &= 2\e{9}\un{instructions/s} \times 10\un{s} = 2\e{10}\un{instructions}\\
+				I_2 &= 2.5\e{9}\un{instructions/s} \times 10\un{s} = 2.5\e{10}\un{instructions} \\
+				I_3 &= 1.82\e{9}\un{instructions/s} \times 10\un{s} = 1.82\e{10}\un{instructions}
+			\end{align*}
+			
+			Multiplying the total number instructions by the CPI gives the total cycles $C$
+			\begin{align*}
+				C_1 &= 2\e{10}\un{instructions} \times 1.5\un{CPI} = 3\e{10}\un{cycles}\\
+				C_2 &= 2.5\e{10}\un{instructions} \times 1\un{CPI} = 2.5\e{10}\un{cycles}\\
+				C_3 &= 1.82\e{10}\un{instructions} \times 2.2\un{CPI} = 4.0\e{10}\un{cycles}
+			\end{align*}
+		\item The clock rate must increase proportionally (20 percent) with the increase in CPI to acheive the target time reduction.
+
+		\end{enumerate}
+
+	\item [1.6]
+	\begin{enumerate}
+		\item The global CPI $G$ is the weighted average of the CPI per each individual instruction set
+			\begin{align*}
+				G_1 &= .1 \times 1\un{CPI} + .2 \times 2\un{CPI} + .5 \times 3\un{CPI} + .2 \times 3\un{CPI} = 2.6 \un{CPI}\\
+				G_2 &= .1 \times 2\un{CPI} + .2 \times 2\un{CPI} + .5 \times 2\un{CPI} + .2 \times 2\un{CPI} = 2 \un{CPI} 
+			\end{align*}
+		\item Multiplying the total instructions by the CPI gives the total clock cycles needed $C$
+			\begin{align*}
+				C_1 &= 1\e{6}\un{instructions}\, \times  2.6 \un{CPI} = 2.6\e{6}\un{cycles} \\
+				C_2 &= 1\e{6}\un{instructions}\, \times  2 \un{CPI}  = 2\e{6}\un{cycles}
+			\end{align*}
+
+			The question in the book does also ask which processor is faster. The time $t$ needed to execute the cycles is given by dividing the total number of cycles by the clock rate
+			\begin{align*}
+				t_1 &= \frac{2.6\e{6}\un{cycles}}{2.5 \un{GHz}} = 1.04\e{-3}\un{s}  \\
+				t_2 &= \frac{2\e{6}\un{cycles}}{3 \un{GHz}} = 0.67\e{-3}\un{s}
+			\end{align*}
+
+			$P_2$ is faster.
+	\end{enumerate}
+	
+
+
+		
+
+
+
+\end{itemize}
+
+\end{document}
