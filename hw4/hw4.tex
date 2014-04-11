@@ -1,0 +1,44 @@
+\documentclass[]{3330hw}
+
+\hwnum{4}
+\due{March 19th, 2014}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+    \item [4.1.1] ~
+		\begin{table}[h!]
+		\centering
+		\begin{tabular}{@{}ccccccc@{}}
+		\toprule
+		RegWrite & MemRead & ALUMUX & MemWrite & ALUOP & RegMux & Branch \\ \midrule
+		1        & 1       & 1(lmm) & 0        & ADD   & 1(Mem) & 0      \\ \bottomrule
+		\end{tabular}
+		\end{table}	
+	
+	\item [4.1.2] The data memory and branch add units are the only blocks that are not used.
+
+	\item [4.1.3] The Branch add block produces an output that is not used, and the Data Memory block does not produce an output.
+	
+	\item [4.2.1] The instruction uses the processsor instruction memory block, a register read port, and the register write port.
+
+	\item [4.2.2] The ALU needs to also be able to do shifts.
+
+	\item [4.2.3] Accordingling, the ALU control must then support the new shift operation in the ALU.
+
+	\item [4.4.1] Becuase I-MEM has the largerst latency, the cycle time is 400ps.
+
+	\item [4.4.2] The longest latency datapath goes through the instruction memory, sign extend / shift left 2, add to compute new instruction, and final mux. The total latency is then
+	\[
+		400 + 100 + 20 + 20 + 30 = 570 \un{ps}
+	\]
+
+	\item [4.4.3] Conditional branches also go through Registers, Mux and ALU
+	\[
+		400 + 200 + 120 + 30 + 30 = 780 \un{ps}
+	\]
+	
+\end{itemize}
+
+\end{document}

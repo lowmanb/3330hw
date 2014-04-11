@@ -1,0 +1,63 @@
+\documentclass[]{3330hw}
+
+\hwnum{5}
+\due{March 31st, 2014}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item [4.5]
+\begin{enumerate}
+	\item [1.] Data memory corresponds to the load and save word instructions, so the total fraction of cycle time used is \[0.25 + 0.1 = 0.35\]
+	\item [2.] The sign extend result is used in for both load and save instructions (to compute memory offsets), branch instructions (to get the PC offset), and the addi instruction (to provide the immediate value to the ALU). The sum  is then \[0.2 + 0.25 + 0.25 + 0.1 = 0.8\] For the and and not instructions, the sign extend unit still computes a result, but it is just ignored.
+\end{enumerate}
+
+\item [4.8] For this problem, I drew heavily upon Fig. 4.27 
+\begin{enumerate}
+    \item [1.] lw is the slowest instruction -- that is, it determines the clock cycle time\\
+	Pipelined: 500ps \\
+	Non-Piplined: 1650ps
+	\item [2.]
+	Pipelined: 2500ps \\
+	Non-Piplined: 1650ps
+	\item [3.] The MEM portion of the pipeline is the slowest. Halving its latency value gives a new clock cycle time of 400ps.
+	\item [4.] Data MEM usitilizes the lw and sw intrucitions, so is uses 35 percent of the clock cycles.
+	\item [5.] The write port can be used by lw and alu instructions, so it is used by 65 percent of the clock cycles.
+\end{enumerate}
+ 
+\item [4.9]
+\begin{enumerate}
+    \item [1.] For lines 1,2, and 3
+	\begin{enumerate}
+	    \item RAW
+		\item RAW
+		\item RAW
+	\end{enumerate}
+	\item [2.] A nop instruction must be inserted after the first and second lines and lines two and three depend upon the results of line one and two
+	\item [3.] With forwarding, no nop instructions are needed. The results of the OR can be forwarded to the next instruction before they are written to the appropriate register, eliminating the need to check is the register has been written before reading it
+	\end{enumerate}
+
+\item [4.10.1]
+There must be two stalls after the beq instruction, and thus the total clock cycles of the program must be 2 longer than it would have been otherwise. The program requires 11 cycles.
+Because nops is an instruction in and of itself, it cannot be used to prevent data hazards as it has to fetched from memory like anything else.
+
+\item [4.13]
+\begin{enumerate}
+    \item [1.] nops instructions must be placed after every instruction to prevent RAW hazards
+	\item [3.] Im not sure how this can be accomplished exactly.
+	\item [4.] the incorrect value for r3 is store in MEM
+\end{enumerate}
+
+\item [4.17.1]
+\begin{itemize}
+	\item BNE: This instruction could thrown an exception for an invalid instruction address pointed to by the label. As such, the exception would occur in IF
+	\item LW: This instruction could generate an arithmetic overflow condition when loading address offset. As such, the exception would occure in the ALU unit
+	
+\end{itemize}
+
+\end{enumerate}
+
+
+\end{document}
