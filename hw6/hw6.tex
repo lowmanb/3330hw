@@ -1,0 +1,42 @@
+\documentclass{3330hw}
+
+\hwnum{6}
+\due{ April 14, 2014}
+
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+%TODO book problem
+\item
+\begin{enumerate}
+	\item [5.3.1] The cache block size is $2^{5}/4 = 8$ words.
+	\item [5.3.2] The cache has $2^{\text{5}} = 32$ entries
+	\item [5.3.3] The ``extraneous" bits are the tag and valid bits. These take up $22*32 = 704$ and $32$ bits, respectively. The ratio is then 
+	\[
+		\frac{736 + 32\cdot32}{32\cdot32} = 1.72
+	\]
+	\item [5.3.4]
+	\item [5.3.5]
+	\item [5.3.6]
+\end{enumerate}
+
+\item Memory hierarchies separate -- as much as possible -- the fast clock speeds of modern processors with slower memory (fast memory on the order of GB is \textit{very} expensive).
+
+\item A write buffer is a queue that holds data while is it waiting to be written to memory. Write back is a scheme that handles writes by updating only to the values in cache, then writing the modified block to a lower level of the memory hierarchy.
+
+\item A split cache is a scheme in which a level of the memory hierarchy is composed of two caches that operate in parallel. On cache handles instructions, and the other cache handles data. An L1 L2 cache scheme is characterized as a multilevel cache with L1 having the highest priority in the memory hierarchy. If there is a miss in the L1 cache, the CPU then looks in the L2 cache before proceeding into lower levels of the hierarchy.
+
+%TODO tuples problem
+\item
+
+%TODO associative cache
+\item 
+
+
+
+\end{enumerate}
+
+\end{document}

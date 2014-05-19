@@ -1,0 +1,35 @@
+\documentclass{3330hw}
+
+\hwnum{7}
+\due{April 14, 2014}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+\item Virtual address space is a layer of abstraction between computer processes and the physical memory. Instead of allowing programs access to actual memory values, the operating system provides a range of virtual addresses that can be used by the program. These virtual addresses are then mapped to actual addresses by the operating system.
+
+\item The page table is created and invoked by the operating system to determine how the virtual memory space alloted to each program is mapped to the actual available memory. That is, what real addresses correspond to virtual ones.
+
+\item ``Paging" a page table implies retrieving the physical address that corresponds to a virtual address. More specifically, a virtual address is divided into two parts, the virtual page number and the page offset. When paging the table, the virtual page address is transformed into a physical page address. In combination with the page offset, which does not change between the real and virtual memory space, the actual address can be determined.
+
+\item Swap space is the space on disk reserved for the full virtual memory space of a running process.
+
+\item The page table register holds the starting address of the page table.
+
+\item A TLB miss occurs when the CPU requests a mapping from virtual memory to actual memory is not stored in the TLB. The mapping must then be loaded into the TLB. A cache miss is when the CPU requires something that is not stored in the cache. The data then must be looked up in RAM (and then the hard disk if also not in RAM).
+
+%TODO (implementation)
+\item The TLB (translation-lookaside buffer) is a cache that keeps track of recently used mappings (virtual memory to physical memory) to try to avoid accessing the complete page table.
+
+%TODO
+\item After a TLB miss, the missing translation is determined and added to the buffer using write-back.
+
+\item A virtual machine monitor abstracts all hardware from the operating system. This allows (in theory) any software to be run on any hardware. In addition, this allows multiple operating systems to be run on the same hardware simultaneously.
+
+\item On architectures where more than one cache is utilized (i.e. multicore processors), it is possible that data can be changed in one cache but not in the others  -- thus the term ``cache coherence problem." Coherence is the discipline of ensuring that the caches remain ``synced."
+
+\end{enumerate}
+	
+\end{document}
